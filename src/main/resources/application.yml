@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: geo-location-api
+    google:
+      geoCodeUrl: https://maps.googleapis.com/maps/api/geocode/json
+      key: ${GEO_LOCATION_KEY}
+  profiles:
+    active: local
+server:
+  port: 8080
+management:
+  endpoints:
+    web:
+      base-path: /manage
+      exposure:
+        include: health,info,keepalive
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+---
+spring:
+  config:
+    activate:
+      on-profile: stage
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
