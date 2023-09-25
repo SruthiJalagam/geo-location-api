@@ -19,9 +19,7 @@ jobs:
           java-version: '17' # Adjust the Java version as needed
           distribution: 'adopt'
 
-      - name: Geo Secrets
+      - name: Build Spring Boot project
         env:
           GEO_LOCATION_KEY_ACTION: ${{secrets.GEO_LOCATION_KEY}}
-
-      - name: Build Spring Boot project
         run: GEO_LOCATION_KEY=GEO_LOCATION_KEY_ACTION ./gradlew build
